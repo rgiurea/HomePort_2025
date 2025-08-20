@@ -6,6 +6,13 @@
     xmlns:local="clr-namespace:HomeMAUI"
     Title="HomeMAUI">
 
+    <Shell.ToolbarItems>
+        <ToolbarItem IconImageSource="menu.svg"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="OnMenuClicked" />
+    </Shell.ToolbarItems>
+
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
