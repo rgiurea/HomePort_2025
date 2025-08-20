@@ -5,6 +5,6 @@ namespace HomeMAUI.Services;
 
 public interface INavigationService
 {
-    Task NavigateToAsync<TViewModel>(object? parameter = null) where TViewModel : BaseViewModel;
+    Task NavigateToAsync(string uri, object? parameter = null);
     Task GoBackAsync();
 }

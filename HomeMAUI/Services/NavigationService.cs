@@ -7,12 +7,11 @@ namespace HomeMAUI.Services;
 
 public class NavigationService : INavigationService
 {
-    public async Task NavigateToAsync<TViewModel>(object? parameter = null) where TViewModel : BaseViewModel
+    public async Task NavigateToAsync(string uri, object? parameter = null)
     {
-        var route = nameof(TViewModel);
         if (parameter is null)
         {
-            await Shell.Current.GoToAsync(route);
+            await Shell.Current.GoToAsync(uri);
         }
         else
         {
@@ -20,7 +19,7 @@ public class NavigationService : INavigationService
             {
                 ["parameter"] = parameter
             };
-            await Shell.Current.GoToAsync(route, dict);
+            await Shell.Current.GoToAsync(uri, dict);
         }
     }
 

@@ -29,6 +29,6 @@ public partial class HomeViewModel : BaseViewModel
 
     private async Task OnSelectDeviceAsync(Device device)
     {
-        await Navigation.NavigateToAsync<ConnectViewModel>(device);
+        await Navigation.NavigateToAsync(nameof(ConnectViewModel), device);
     }
 }

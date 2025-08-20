@@ -21,7 +21,7 @@ public partial class ConnectViewModel : BaseViewModel
     public override async Task OnViewAppearingAsync()
     {
         await Task.Delay(2000);
-        await Navigation.NavigateToAsync<DeviceDashboardViewModel>(_device!);
+        await Navigation.NavigateToAsync(nameof(DeviceDashboardViewModel), _device!);
         var navigation = Shell.Current.Navigation;
         var previous = navigation.NavigationStack[navigation.NavigationStack.Count - 2];
         navigation.RemovePage(previous);
