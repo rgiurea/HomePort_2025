@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage
+    x:Class="HomeMAUI.Views.SplashPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
+    xmlns:views="clr-namespace:HomeMAUI.Views"
+    x:TypeArguments="vm:SplashViewModel"
+    x:DataType="vm:SplashViewModel">
+    <ContentPage.BindingContext>
+        <vm:SplashViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Label Text="Splash" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Grid>
+</views:BasePage>

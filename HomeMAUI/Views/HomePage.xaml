@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:BasePage
+    x:Class="HomeMAUI.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
+    xmlns:views="clr-namespace:HomeMAUI.Views"
+    xmlns:models="clr-namespace:HomeMAUI.Models"
+    x:TypeArguments="vm:HomeViewModel"
+    x:DataType="vm:HomeViewModel">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+    <CollectionView x:Name="DeviceList"
+                    ItemsSource="{Binding Devices}"
+                    SelectionMode="Single"
+                    SelectionChangedCommand="{Binding SelectDeviceCommand}"
+                    SelectionChangedCommandParameter="{Binding Source={x:Reference DeviceList}, Path=SelectedItem}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:Device">
+                <Label Text="{Binding Name}" Padding="10" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</views:BasePage>
