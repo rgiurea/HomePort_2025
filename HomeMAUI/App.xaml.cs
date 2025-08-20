@@ -1,4 +1,8 @@
-﻿namespace HomeMAUI;
+﻿using System;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+
+namespace HomeMAUI;
 
 public partial class App : Application
 {

@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace HomeMAUI.ViewModels;
 
 public partial class SplashViewModel : BaseViewModel

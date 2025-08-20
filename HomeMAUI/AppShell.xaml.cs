@@ -1,4 +1,6 @@
-﻿namespace HomeMAUI;
+﻿using Microsoft.Maui.Controls;
+
+namespace HomeMAUI;
 
 using HomeMAUI.ViewModels;
 using HomeMAUI.Views;
