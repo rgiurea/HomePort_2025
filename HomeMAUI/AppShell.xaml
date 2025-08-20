@@ -6,16 +6,16 @@
     xmlns:local="clr-namespace:HomeMAUI"
     Title="HomeMAUI">
 
-    <Shell.ToolbarItems>
-        <ToolbarItem IconImageSource="menu.svg"
-                     Order="Primary"
-                     Priority="0"
-                     Clicked="OnMenuClicked" />
-    </Shell.ToolbarItems>
+    <FlyoutItem Title="Home">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+    </FlyoutItem>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem Title="More">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MorePage}"
+            Route="MorePage" />
+    </FlyoutItem>
 
 </Shell>
