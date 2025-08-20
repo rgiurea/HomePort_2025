@@ -1,8 +1,8 @@
 namespace HomeMAUI;
 
-public partial class AppShell : Shell
+public partial class MorePage : ContentPage
 {
-    public AppShell()
+    public MorePage()
     {
         InitializeComponent();
     }
