@@ -1,26 +1,14 @@
-using System;
-using Microsoft.Maui.Controls;
-
-namespace HomeMAUI;
+﻿namespace HomeMAUI;
 
 public partial class AppShell : Shell
 {
-    public AppShell()
-    {
-        InitializeComponent();
-        Routing.RegisterRoute(nameof(MorePage), typeof(MorePage));
-    }
+        public AppShell()
+        {
+                InitializeComponent();
+        }
 
-    private async void OnMenuClicked(object? sender, EventArgs e)
-    {
-        string? action = await DisplayActionSheet("Menu", "Cancel", null, "Home", "More");
-        if (action == "Home")
+        private void OnMenuClicked(object sender, EventArgs e)
         {
-            await GoToAsync("//MainPage");
+                Shell.Current.FlyoutIsPresented = true;
         }
-        else if (action == "More")
-        {
-            await GoToAsync(nameof(MorePage));
-        }
-    }
 }

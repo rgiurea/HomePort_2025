@@ -4,14 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HomeMAUI"
-    Title="HomeMAUI"
-    FlyoutBehavior="Disabled">
+    Title="HomeMAUI">
 
-    <ToolbarItem
-        IconImageSource="menu.svg"
-        Order="Primary"
-        Priority="0"
-        Clicked="OnMenuClicked" />
+    <Shell.ToolbarItems>
+        <ToolbarItem IconImageSource="menu.svg"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="OnMenuClicked" />
+    </Shell.ToolbarItems>
 
     <ShellContent
         Title="Home"
