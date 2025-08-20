@@ -1,0 +1,104 @@
+# =========================
+# JetBrains Rider / IntelliJ
+# =========================
+.idea/
+*.iml
+out/
+
+# =========================
+# Build / VS / MSBuild
+# =========================
+bin/
+obj/
+Debug/
+Release/
+[Bb]uild/
+[Ll]ogs/
+
+# =========================
+# .NET
+# =========================
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# MAUI / Xamarin / Android
+# =========================
+*.apk
+*.ap_
+*.aab
+*.keystore
+*.jks
+*.dex
+*.class
+*.jar
+*.apk.idsig
+*.apk.map
+*.apk.metadata
+*.androidproj.user
+*.androidproj.userprefs
+
+# Android build cache
+.gradle/
+local.properties
+
+# =========================
+# iOS / macOS
+# =========================
+*.app
+*.app.dSYM
+*.ipa
+*.dSYM
+*.xcuserstate
+*.xcscmblueprint
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+
+# =========================
+# Windows
+# =========================
+*.appx
+*.appxbundle
+*.appxupload
+*.msix
+*.msixbundle
+*.msixupload
+
+# =========================
+# Visual Studio (if used)
+# =========================
+.vs/
+*.dbmdl
+*.bak
+*.backup
+*.log
+*.pdb
+*.cache
+*.sdf
+*.opensdf
+*.ipch
+
+# =========================
+# Rider caches
+# =========================
+.idea/.idea.*
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/libraries
+.idea/httpRequests/
+.idea/caches/
+.idea/shelf/
