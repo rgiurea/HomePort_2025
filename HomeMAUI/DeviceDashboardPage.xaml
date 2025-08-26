@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<local:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HomeMAUI"
+             xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
              x:Class="HomeMAUI.DeviceDashboardPage"
+             x:DataType="vm:DeviceDashboardViewModel"
              Title="Device Dashboard">
+    <BasePage.BindingContext>
+        <vm:DeviceDashboardViewModel />
+    </BasePage.BindingContext>
     <VerticalStackLayout Padding="30" Spacing="10">
         <Label Text="Name:" />
-        <Label Text="{Binding Name}" />
+        <Label Text="{Binding Device.Name}" />
         <Label Text="RSSI:" />
-        <Label Text="{Binding Rssi}" />
+        <Label Text="{Binding Device.Rssi}" />
         <Label Text="BLE Address:" />
-        <Label Text="{Binding BleAddress}" />
+        <Label Text="{Binding Device.BleAddress}" />
     </VerticalStackLayout>
-</ContentPage>
+</local:BasePage>

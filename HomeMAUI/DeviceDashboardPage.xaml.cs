@@ -1,13 +1,9 @@
-using Microsoft.Maui.Controls;
-using HomeMAUI.Models;
-
 namespace HomeMAUI;
 
-public partial class DeviceDashboardPage : ContentPage
+public partial class DeviceDashboardPage : BasePage
 {
-    public DeviceDashboardPage(BleDevice bleDevice)
+    public DeviceDashboardPage()
     {
         InitializeComponent();
-        BindingContext = bleDevice;
     }
 }

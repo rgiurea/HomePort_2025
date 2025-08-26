@@ -4,18 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HomeMAUI"
+    xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
     Title="HomeMAUI">
 
     <FlyoutItem Title="Home">
         <ShellContent
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
+            ContentTemplate="{DataTemplate local:HomePage}"
+            Route="{x:Static vm:HomeViewModel.Route}" />
     </FlyoutItem>
 
     <FlyoutItem Title="More">
         <ShellContent
             ContentTemplate="{DataTemplate local:MorePage}"
-            Route="MorePage" />
+            Route="{x:Static vm:MoreViewModel.Route}" />
     </FlyoutItem>
 
 </Shell>

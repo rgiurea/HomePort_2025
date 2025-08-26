@@ -1,8 +1,8 @@
 namespace HomeMAUI;
 
-public partial class MorePage : BasePage
+public partial class HomePage : BasePage
 {
-    public MorePage()
+    public HomePage()
     {
         InitializeComponent();
     }
