@@ -1,23 +1,26 @@
-﻿namespace HomeMAUI;
+using System.Linq;
+using HomeMAUI.Models;
+using HomeMAUI.ViewModels;
+
+namespace HomeMAUI;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage()
+    {
+        InitializeComponent();
+        BindingContext = new MainViewModel();
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
-
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    async void OnDeviceSelected(object? sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is Device device)
+        {
+            await Shell.Current.GoToAsync(nameof(ConnectPage), new Dictionary<string, object>
+            {
+                { "device", device }
+            });
+            ((CollectionView)sender!).SelectedItem = null;
+        }
+    }
 }
