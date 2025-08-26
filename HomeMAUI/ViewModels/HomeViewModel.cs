@@ -15,9 +15,6 @@ public partial class HomeViewModel : BaseViewModel
 
     public ObservableCollection<BleDevice> Devices { get; } = new();
 
-    [ObservableProperty]
-    BleDevice? selectedDevice;
-
     public override Task InitializeAsync()
     {
         var rand = new Random();
@@ -33,18 +30,9 @@ public partial class HomeViewModel : BaseViewModel
         return Task.CompletedTask;
     }
 
-    partial void OnSelectedDeviceChanged(BleDevice? value)
-    {
-        if (value != null)
-        {
-            SelectDeviceCommand.Execute(value);
-        }
-    }
-
     [RelayCommand]
     async Task SelectDevice(BleDevice device)
     {
         await GetService<INavigationService>().GoToAsync(nameof(ConnectViewModel), device);
-        SelectedDevice = null;
     }
 }
