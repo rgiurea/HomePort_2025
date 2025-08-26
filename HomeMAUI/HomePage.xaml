@@ -5,9 +5,9 @@
              xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
              x:Class="HomeMAUI.HomePage"
              x:DataType="vm:HomeViewModel">
-    <BasePage.BindingContext>
+    <local:BasePage.BindingContext>
         <vm:HomeViewModel />
-    </BasePage.BindingContext>
+    </local:BasePage.BindingContext>
     <CollectionView ItemsSource="{Binding Devices}"
                     SelectionMode="Single"
                     SelectedItem="{Binding SelectedDevice}">

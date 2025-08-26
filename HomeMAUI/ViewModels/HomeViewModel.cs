@@ -44,7 +44,7 @@ public partial class HomeViewModel : BaseViewModel
     [RelayCommand]
     async Task SelectDevice(BleDevice device)
     {
-        await GetService<INavigationService>().GoToAsync<ConnectViewModel>(device);
+        await GetService<INavigationService>().GoToAsync(nameof(ConnectViewModel), device);
         SelectedDevice = null;
     }
 }

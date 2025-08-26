@@ -9,9 +9,9 @@ public class NavigationService : INavigationService
 {
     public const string ParameterKey = "parameter";
 
-    public async Task GoToAsync<TViewModel>(object? parameter = null, bool removePrevious = false) where TViewModel : BaseViewModel
+    public async Task GoToAsync(string route, object? parameter = null, bool removePrevious = false)
     {
-        var route = nameof(TViewModel);
+        
         var dict = new Dictionary<string, object>();
         if (parameter != null)
             dict[ParameterKey] = parameter;

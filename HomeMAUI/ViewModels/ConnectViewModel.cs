@@ -22,6 +22,6 @@ public partial class ConnectViewModel : BaseViewModel
     {
         await Task.Delay(2000);
         if (Device != null)
-            await GetService<INavigationService>().GoToAsync<DeviceDashboardViewModel>(Device, true);
+            await GetService<INavigationService>().GoToAsync(nameof(DeviceDashboardViewModel), Device, true);
     }
 }

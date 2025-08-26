@@ -6,9 +6,9 @@
              x:Class="HomeMAUI.MorePage"
              x:DataType="vm:MoreViewModel"
              Title="More">
-    <BasePage.BindingContext>
+    <local:BasePage.BindingContext>
         <vm:MoreViewModel />
-    </BasePage.BindingContext>
+    </local:BasePage.BindingContext>
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"

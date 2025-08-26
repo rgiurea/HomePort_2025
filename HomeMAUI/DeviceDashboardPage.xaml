@@ -6,9 +6,9 @@
              x:Class="HomeMAUI.DeviceDashboardPage"
              x:DataType="vm:DeviceDashboardViewModel"
              Title="Device Dashboard">
-    <BasePage.BindingContext>
+    <local:BasePage.BindingContext>
         <vm:DeviceDashboardViewModel />
-    </BasePage.BindingContext>
+    </local:BasePage.BindingContext>
     <VerticalStackLayout Padding="30" Spacing="10">
         <Label Text="Name:" />
         <Label Text="{Binding Device.Name}" />

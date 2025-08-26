@@ -6,9 +6,9 @@
              x:Class="HomeMAUI.ConnectPage"
              x:DataType="vm:ConnectViewModel"
              Title="Connect">
-    <BasePage.BindingContext>
+    <local:BasePage.BindingContext>
         <vm:ConnectViewModel />
-    </BasePage.BindingContext>
+    </local:BasePage.BindingContext>
     <VerticalStackLayout Padding="30" Spacing="10">
         <Label Text="Connecting to:" />
         <Label Text="{Binding Device.Name}" Style="{StaticResource Headline}" />
