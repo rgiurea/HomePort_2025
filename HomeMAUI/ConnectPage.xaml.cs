@@ -1,14 +1,14 @@
 using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
 using HomeMAUI.Models;
+using Microsoft.Maui.Controls;
 
 namespace HomeMAUI;
 
 public partial class ConnectPage : ContentPage
 {
-    private readonly Device _device;
+    private readonly BleDevice _device;
 
-    public ConnectPage(Device device)
+    public ConnectPage(BleDevice device)
     {
         InitializeComponent();
         _device = device;

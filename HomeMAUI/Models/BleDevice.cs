@@ -1,6 +1,6 @@
 namespace HomeMAUI.Models;
 
-public class Device
+public class BleDevice
 {
     public string Name { get; set; } = string.Empty;
     public int Rssi { get; set; }

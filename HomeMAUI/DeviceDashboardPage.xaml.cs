@@ -5,9 +5,9 @@ namespace HomeMAUI;
 
 public partial class DeviceDashboardPage : ContentPage
 {
-    public DeviceDashboardPage(Device device)
+    public DeviceDashboardPage(BleDevice bleDevice)
     {
         InitializeComponent();
-        BindingContext = device;
+        BindingContext = bleDevice;
     }
 }
