@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeMAUI.DeviceDashboardPage"
+             Title="Device Dashboard">
+    <VerticalStackLayout Padding="30" Spacing="10">
+        <Label Text="Name:" />
+        <Label Text="{Binding Name}" />
+        <Label Text="RSSI:" />
+        <Label Text="{Binding Rssi}" />
+        <Label Text="BLE Address:" />
+        <Label Text="{Binding BleAddress}" />
+    </VerticalStackLayout>
+</ContentPage>
