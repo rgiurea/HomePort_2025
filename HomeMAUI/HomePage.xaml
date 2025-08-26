@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HomeMAUI"
+             xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
+             x:Class="HomeMAUI.HomePage"
+             x:DataType="vm:HomeViewModel">
+    <BasePage.BindingContext>
+        <vm:HomeViewModel />
+    </BasePage.BindingContext>
+    <CollectionView ItemsSource="{Binding Devices}"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedDevice}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Padding="10" Margin="10" BorderColor="LightGray">
+                    <Label Text="{Binding Name}" />
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</local:BasePage>
