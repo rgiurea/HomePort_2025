@@ -32,14 +32,4 @@ public abstract partial class BaseViewModel : ObservableObject, IQueryAttributab
     public virtual void OnDestroy() { }
     public virtual void OnAppToBackground() { }
     public virtual void OnAppToForeground() { }
-
-    protected BaseViewModel()
-    {
-        var app = Application.Current;
-        if (app != null)
-        {
-            app.Resumed += (_, __) => OnAppToForeground();
-            app.Stopped += (_, __) => OnAppToBackground();
-        }
-    }
 }
