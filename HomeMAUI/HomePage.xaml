@@ -3,18 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HomeMAUI"
              xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
+             xmlns:model="clr-namespace:HomeMAUI.Models"
              x:Class="HomeMAUI.HomePage"
              x:DataType="vm:HomeViewModel">
     <local:BasePage.BindingContext>
         <vm:HomeViewModel />
     </local:BasePage.BindingContext>
-    <CollectionView ItemsSource="{Binding Devices}"
+    <CollectionView x:Name="DevicesCollectionView"
+                    ItemsSource="{Binding Devices}"
                     SelectionMode="Single"
-                    SelectedItem="{Binding SelectedDevice}">
+                    SelectionChanged="OnDeviceSelected">
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate x:DataType="model:BleDevice">
                 <Frame Padding="10" Margin="10" BorderColor="LightGray">
-                    <Label Text="{Binding Name}" />
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="{Binding Name}" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Rssi}"
+                               HorizontalOptions="End" />
+                    </Grid>
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
