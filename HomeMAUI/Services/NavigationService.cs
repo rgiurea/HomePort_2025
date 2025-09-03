@@ -11,7 +11,7 @@ public class NavigationService : INavigationService
 
     public async Task GoToAsync(string route, object? parameter = null, bool removePrevious = false)
     {
-        
+
         var dict = new Dictionary<string, object>();
         if (parameter != null)
             dict[ParameterKey] = parameter;

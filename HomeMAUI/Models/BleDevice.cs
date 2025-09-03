@@ -7,3 +7,4 @@ public class BleDevice
     public string BleAddress { get; set; } = string.Empty;
 }
 
+

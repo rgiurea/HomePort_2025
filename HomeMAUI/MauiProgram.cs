@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.DependencyInjection;
 using HomeMAUI.Services;
+using HomeMAUI.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
@@ -21,6 +22,18 @@ public static class MauiProgram
                         });
                 
                 builder.Services.AddSingleton<INavigationService, NavigationService>();
+                
+                // Register ViewModels
+                builder.Services.AddTransient<HomeViewModel>();
+                builder.Services.AddTransient<ConnectViewModel>();
+                builder.Services.AddTransient<DeviceDashboardViewModel>();
+                builder.Services.AddTransient<MoreViewModel>();
+
+                // Register Pages
+                builder.Services.AddTransient<HomePage>();
+                builder.Services.AddTransient<ConnectPage>();
+                builder.Services.AddTransient<DeviceDashboardPage>();
+                builder.Services.AddTransient<MorePage>();
 
 #if DEBUG
                 builder.Logging.AddDebug();

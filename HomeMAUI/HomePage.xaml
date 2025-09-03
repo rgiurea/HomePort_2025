@@ -4,19 +4,58 @@
              xmlns:local="clr-namespace:HomeMAUI"
              xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
              x:Class="HomeMAUI.HomePage"
-             x:DataType="vm:HomeViewModel">
+             x:DataType="vm:HomeViewModel"
+             Title="Available Devices">
     <local:BasePage.BindingContext>
         <vm:HomeViewModel />
     </local:BasePage.BindingContext>
-    <CollectionView ItemsSource="{Binding Devices}"
-                    SelectionMode="Single"
-                    SelectedItem="{Binding SelectedDevice}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Padding="10" Margin="10" BorderColor="LightGray">
-                    <Label Text="{Binding Name}" />
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    
+    <Grid>
+        <CollectionView ItemsSource="{Binding Devices}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedDevice}"
+                        BackgroundColor="Transparent">
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Label Text="No devices found" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           TextColor="Gray" />
+                    <Label Text="Pull to refresh" 
+                           HorizontalOptions="Center"
+                           FontSize="12"
+                           TextColor="LightGray" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="16,8">
+                        <Frame BackgroundColor="White"
+                               BorderColor="LightGray"
+                               CornerRadius="8"
+                               HasShadow="True"
+                               Padding="16">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding Name}" 
+                                           FontSize="16"
+                                           FontAttributes="Bold" />
+                                    <Label Text="{Binding BleAddress}" 
+                                           FontSize="12"
+                                           TextColor="Gray" />
+                                </StackLayout>
+                                <Label Grid.Column="1"
+                                       Text="{Binding Rssi, StringFormat='{0} dBm'}"
+                                       FontSize="12"
+                                       TextColor="DarkGray"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </local:BasePage>
