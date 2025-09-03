@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace HomeMAUI;
 
@@ -15,6 +16,7 @@ public static class MauiProgram
                 var builder = MauiApp.CreateBuilder();
                 builder
                         .UseMauiApp<App>()
+                        .ConfigureSyncfusionCore()
                         .ConfigureFonts(fonts =>
                         {
                                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

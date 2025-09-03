@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HomeMAUI"
              xmlns:vm="clr-namespace:HomeMAUI.ViewModels"
+             xmlns:models="clr-namespace:HomeMAUI.Models"
              x:Class="HomeMAUI.HomePage"
              x:DataType="vm:HomeViewModel"
              Title="Available Devices">
@@ -12,47 +13,73 @@
     
     <Grid>
         <CollectionView ItemsSource="{Binding Devices}"
-                        SelectionMode="Single"
-                        SelectedItem="{Binding SelectedDevice}"
-                        BackgroundColor="Transparent">
+                       SelectionMode="Single"
+                       SelectedItem="{Binding SelectedDevice}"
+                       BackgroundColor="Transparent">
+            
             <CollectionView.EmptyView>
                 <StackLayout>
-                    <Label Text="No devices found" 
+                    <Label Text="🔍 No devices found" 
                            HorizontalOptions="Center" 
                            VerticalOptions="Center"
-                           FontSize="16"
-                           TextColor="Gray" />
-                    <Label Text="Pull to refresh" 
+                           FontSize="18"
+                           TextColor="#666666"
+                           Margin="0,20" />
+                    <Label Text="Pull down to refresh and scan for devices" 
                            HorizontalOptions="Center"
-                           FontSize="12"
-                           TextColor="LightGray" />
+                           FontSize="14"
+                           TextColor="#999999" />
                 </StackLayout>
             </CollectionView.EmptyView>
             
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="models:BleDevice">
                     <Grid Padding="16,8">
-                        <Frame BackgroundColor="White"
-                               BorderColor="LightGray"
-                               CornerRadius="8"
-                               HasShadow="True"
-                               Padding="16">
-                            <Grid ColumnDefinitions="*,Auto">
-                                <StackLayout Grid.Column="0">
+                        <Border BackgroundColor="White"
+                                Stroke="#E0E0E0"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 12">
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Opacity="0.1" Radius="8" Offset="0,2" />
+                            </Border.Shadow>
+                            <Grid Padding="16" ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                
+                                <!-- Device Icon -->
+                                <Label Grid.Column="0" 
+                                       Grid.RowSpan="2"
+                                       Text="📱"
+                                       FontSize="24"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,12,0" />
+                                
+                                <!-- Device Info -->
+                                <StackLayout Grid.Column="1" 
+                                           Grid.Row="0"
+                                           Spacing="2">
                                     <Label Text="{Binding Name}" 
                                            FontSize="16"
-                                           FontAttributes="Bold" />
+                                           FontAttributes="Bold"
+                                           TextColor="#333333" />
                                     <Label Text="{Binding BleAddress}" 
                                            FontSize="12"
-                                           TextColor="Gray" />
+                                           TextColor="#666666" />
                                 </StackLayout>
-                                <Label Grid.Column="1"
-                                       Text="{Binding Rssi, StringFormat='{0} dBm'}"
-                                       FontSize="12"
-                                       TextColor="DarkGray"
-                                       VerticalOptions="Center" />
+                                
+                                <!-- Signal Strength -->
+                                <StackLayout Grid.Column="2" 
+                                           Grid.RowSpan="2"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="End">
+                                    <Label Text="📶"
+                                           FontSize="16"
+                                           HorizontalOptions="Center" />
+                                    <Label Text="{Binding Rssi, StringFormat='{0} dBm'}"
+                                           FontSize="11"
+                                           TextColor="#666666"
+                                           HorizontalOptions="Center" />
+                                </StackLayout>
                             </Grid>
-                        </Frame>
+                        </Border>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

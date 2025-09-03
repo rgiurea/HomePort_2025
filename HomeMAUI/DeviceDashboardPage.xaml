@@ -9,12 +9,209 @@
     <local:BasePage.BindingContext>
         <vm:DeviceDashboardViewModel />
     </local:BasePage.BindingContext>
-    <VerticalStackLayout Padding="30" Spacing="10">
-        <Label Text="Name:" />
-        <Label Text="{Binding Device.Name}" />
-        <Label Text="RSSI:" />
-        <Label Text="{Binding Device.Rssi}" />
-        <Label Text="BLE Address:" />
-        <Label Text="{Binding Device.BleAddress}" />
-    </VerticalStackLayout>
+    
+    <ScrollView>
+        <StackLayout Padding="16" Spacing="16">
+            
+            <!-- Device Header Card -->
+            <Border BackgroundColor="White"
+                    Stroke="#E0E0E0"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.1" Radius="8" Offset="0,2" />
+                </Border.Shadow>
+                <Grid Padding="20" ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                    
+                    <!-- Device Status Icon -->
+                    <Label Grid.Column="0" 
+                           Grid.RowSpan="2"
+                           Text="✅"
+                           FontSize="32"
+                           VerticalOptions="Center"
+                           Margin="0,0,16,0" />
+                    
+                    <!-- Device Name and Status -->
+                    <StackLayout Grid.Column="1" Grid.Row="0" Spacing="4">
+                        <Label Text="{Binding Device.Name}"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="#333333" />
+                        <Label Text="Connected"
+                               FontSize="14"
+                               TextColor="#28A745" />
+                    </StackLayout>
+                    
+                    <!-- Connection Type -->
+                    <Label Grid.Column="2" 
+                           Grid.RowSpan="2"
+                           Text="📶"
+                           FontSize="24"
+                           VerticalOptions="Center" />
+                    
+                    <!-- Device Address -->
+                    <Label Grid.Column="1" 
+                           Grid.Row="1"
+                           Text="{Binding Device.BleAddress}"
+                           FontSize="12"
+                           TextColor="#666666"
+                           Margin="0,8,0,0" />
+                </Grid>
+            </Border>
+            
+            <!-- Signal Strength Gauge -->
+            <Border BackgroundColor="White"
+                    Stroke="#E0E0E0"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.1" Radius="8" Offset="0,2" />
+                </Border.Shadow>
+                <StackLayout Padding="20" Spacing="16">
+                    <Label Text="Signal Strength"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#333333"
+                           HorizontalOptions="Center" />
+                    
+                    <!-- Simplified Signal Strength Display -->
+                    <Grid HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
+                        <Ellipse Fill="#E0E0E0" 
+                                 HeightRequest="200" 
+                                 WidthRequest="200" />
+                        <Ellipse Fill="#007ACC" 
+                                 HeightRequest="160" 
+                                 WidthRequest="160"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center" />
+                        <Label Text="{Binding Device.Rssi, StringFormat='{0}'}"
+                               FontSize="32"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                        <Label Text="dBm"
+                               FontSize="16"
+                               TextColor="White"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="0,40,0,0" />
+                    </Grid>
+                    
+                    <Label Text="{Binding Device.Rssi, StringFormat='{0} dBm'}"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#007ACC"
+                           HorizontalOptions="Center" />
+                </StackLayout>
+            </Border>
+            
+            <!-- Device Actions -->
+            <Border BackgroundColor="White"
+                    Stroke="#E0E0E0"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.1" Radius="8" Offset="0,2" />
+                </Border.Shadow>
+                <StackLayout Padding="20" Spacing="16">
+                    <Label Text="Device Controls"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#333333"
+                           HorizontalOptions="Center" />
+                    
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                        
+                        <Button Grid.Column="0" 
+                                Grid.Row="0"
+                                Text="💡 Toggle Light"
+                                BackgroundColor="#007ACC"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50" />
+                        
+                        <Button Grid.Column="1" 
+                                Grid.Row="0"
+                                Text="🔄 Refresh Data"
+                                BackgroundColor="#28A745"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50" />
+                        
+                        <Button Grid.Column="0" 
+                                Grid.Row="1"
+                                Text="⚙️ Settings"
+                                BackgroundColor="#6C757D"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50" />
+                        
+                        <Button Grid.Column="1" 
+                                Grid.Row="1"
+                                Text="🔌 Disconnect"
+                                BackgroundColor="#DC3545"
+                                TextColor="White"
+                                CornerRadius="8"
+                                HeightRequest="50" />
+                    </Grid>
+                </StackLayout>
+            </Border>
+            
+            <!-- Device Statistics -->
+            <Border BackgroundColor="White"
+                    Stroke="#E0E0E0"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.1" Radius="8" Offset="0,2" />
+                </Border.Shadow>
+                <StackLayout Padding="20" Spacing="16">
+                    <Label Text="Connection Statistics"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="#333333"
+                           HorizontalOptions="Center" />
+                    
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="16">
+                        
+                        <!-- Uptime -->
+                        <StackLayout Grid.Column="0" Grid.Row="0" HorizontalOptions="Center">
+                            <Label Text="⏱️" FontSize="20" HorizontalOptions="Center" />
+                            <Label Text="Uptime" FontSize="12" TextColor="#666666" HorizontalOptions="Center" />
+                            <Label Text="00:02:15" FontSize="16" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" />
+                        </StackLayout>
+                        
+                        <!-- Data Packets -->
+                        <StackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Center">
+                            <Label Text="📊" FontSize="20" HorizontalOptions="Center" />
+                            <Label Text="Data Packets" FontSize="12" TextColor="#666666" HorizontalOptions="Center" />
+                            <Label Text="1,247" FontSize="16" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" />
+                        </StackLayout>
+                        
+                        <!-- Battery Level -->
+                        <StackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="Center">
+                            <Label Text="🔋" FontSize="20" HorizontalOptions="Center" />
+                            <Label Text="Battery" FontSize="12" TextColor="#666666" HorizontalOptions="Center" />
+                            <ProgressBar Progress="0.85"
+                                        ProgressColor="#28A745"
+                                        BackgroundColor="#E0E0E0"
+                                        WidthRequest="80"
+                                        HeightRequest="8"
+                                        Margin="0,4,0,0" />
+                            <Label Text="85%" FontSize="14" FontAttributes="Bold" TextColor="#28A745" HorizontalOptions="Center" />
+                        </StackLayout>
+                        
+                        <!-- Temperature -->
+                        <StackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
+                            <Label Text="🌡️" FontSize="20" HorizontalOptions="Center" />
+                            <Label Text="Temperature" FontSize="12" TextColor="#666666" HorizontalOptions="Center" />
+                            <Label Text="22.5°C" FontSize="16" FontAttributes="Bold" TextColor="#333333" HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </Border>
+            
+        </StackLayout>
+    </ScrollView>
 </local:BasePage>
