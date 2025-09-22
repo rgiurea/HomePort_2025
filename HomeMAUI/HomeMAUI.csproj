@@ -13,7 +13,7 @@
 		<ApplicationTitle>HomeMAUI</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>ro.msinternational.homemaui</ApplicationId>
+		<ApplicationId>com.geberit.hometest.maui.debug</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
